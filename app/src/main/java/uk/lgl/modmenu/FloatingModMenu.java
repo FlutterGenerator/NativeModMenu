@@ -937,10 +937,15 @@ public class FloatingModMenu {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 radioButton.setButtonTintList(ColorStateList.valueOf(RadioColor));
 
-            radioButton.setOnClickListener(v -> {
-                textView.setText(Html.fromHtml(featName + ": <font color='" + NumberTxtColor + "'>" + optionName));
-                Changes(activity, featNum, featName, index, false, "");
-                savedIndexes.put(featNum, index);
+            radioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            textView.setText(
+             Html.fromHtml(featName + ": <font color='" + NumberTxtColor + "'>" + optionName + "</font>")
+             );
+             Changes(activity, featNum, featName, index, false, "");
+             savedIndexes.put(featNum, index);
+            }
             });
 
             radioGroup.addView(radioButton);
