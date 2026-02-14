@@ -68,11 +68,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import uk.lgl.R;
+import java.util.Objects;
 
 
 public class FloatingModMenu {
+
 
     public static final String TAG = "Mod_Menu"; //Tag for logcat
     int TEXT_COLOR = Color.parseColor("#82CAFD");
@@ -120,12 +120,6 @@ public class FloatingModMenu {
     native String[] settingsList();
 
     public static native void Changes(Context con, int fNum, String fName, int i, boolean bool, String str);
-
-    private Context context;
-
-    public FloatingModMenu(Context context) {
-        this.context = context;
-    }
 
 
     public FloatingModMenu(Activity activity) {
@@ -812,9 +806,9 @@ public class FloatingModMenu {
 
                 //TextView
                 final TextView TextViewNote = new TextView(activity);
-                TextViewNote.setText(context.getString(R.string.note_apply_changes));
+                TextViewNote.setText("Tap OK to apply changes. Tap outside to cancel");
                 if (maxValue != 0)
-                    TextViewNote.setText(context.getString(R.string.note_apply_changes_with_max, maxValue));
+                    TextViewNote.setText("Tap OK to apply changes. Tap outside to cancel\nMax value: " + maxValue);
                 TextViewNote.setTextColor(TEXT_COLOR_2);
 
                 //Edit text
@@ -925,7 +919,7 @@ public class FloatingModMenu {
         final List<String> options = new LinkedList<>(Arrays.asList(list.split(",")));
         Map<Integer, Integer> savedIndexes = new HashMap<>();
         final TextView textView = new TextView(activity);
-        textView.setText(context.getString(R.string.feat_name_colon, featName));
+        textView.setText(featName + ":");
         textView.setTextColor(TEXT_COLOR_2);
 
         final RadioGroup radioGroup = new RadioGroup(activity);
@@ -986,7 +980,7 @@ public class FloatingModMenu {
 
         final TextView textView = new TextView(activity);
         textView.setBackgroundColor(CategoryBG);
-        textView.setText(context.getString(R.string.arrow_down_text, text));
+        textView.setText("▽ " + text + " ▽");
         textView.setGravity(Gravity.CENTER);
         textView.setTextColor(TEXT_COLOR_2);
         textView.setTypeface(null, Typeface.BOLD);
@@ -1001,11 +995,11 @@ public class FloatingModMenu {
                 this.isChecked = z;
                 if (z) {
                     collapseSub.setVisibility(View.VISIBLE);
-                    textView.setText(context.getString(R.string.arrow_up_text, text));
+                    textView.setText("△ " + text + " △");
                     return;
                 }
                 collapseSub.setVisibility(View.GONE);
-                textView.setText(context.getString(R.string.arrow_down_text, text));
+                textView.setText("▽ " + text + " ▽");
             }
         });
         collapse.addView(textView);
