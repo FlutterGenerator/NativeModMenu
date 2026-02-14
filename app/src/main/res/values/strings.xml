@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">LGL Mod Menu</string>
+    <string name="app_name" translatable="false">LGL Mod Menu</string>
+    <string name="note_apply_changes">Tap OK to apply changes. Tap outside to cancel</string>
+    <string name="note_apply_changes_with_max">Tap OK to apply changes. Tap outside to cancel Max value: %1$d</string>
+    <string name="arrow_up_text">△ %1$s △</string>
+    <string name="arrow_down_text">▽ %1$s ▽</string>
+    <string name="feat_name_colon">%1$s:</string>
+
 </resources>

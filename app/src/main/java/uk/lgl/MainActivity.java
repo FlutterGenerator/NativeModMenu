@@ -7,8 +7,6 @@ package uk.lgl;
 import android.app.Activity;
 import android.os.Bundle;
 
-import uk.lgl.modmenu.FloatingModMenu;
-
 
 public class MainActivity extends Activity {
 
