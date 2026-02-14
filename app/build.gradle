@@ -3,7 +3,7 @@ plugins {
 }
 
 class JavaDex {
-    static String xxd_p(String filePath) {
+    public static String xxd_p(String filePath) {
         StringBuilder hexString = new StringBuilder()
         File file = new File(filePath)
         try (FileInputStream fis = new FileInputStream(file)) {
@@ -45,10 +45,6 @@ android {
         ndkBuild {
             path file('src/main/jni/Android.mk')
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
     }
 
     android.applicationVariants.all { variant ->
