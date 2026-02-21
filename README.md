@@ -22,11 +22,11 @@ This implementation focuses on stealth and efficiency by embedding the `Floating
 
 ## Core Logic Flow
 
-1. **Data Embedding:** The `FloatingModMenu.dex` is converted to a HEX string and compiled into the C++ source.
+1. **Data Embedding:** The `menu.dex` is converted to a HEX string and compiled into the C++ source.
 2. **Buffer Reconstruction:** At runtime, the HEX string is decoded into a `ByteBuffer`.
-3. **Class Loading:** The `InMemoryDexClassLoader` interprets the buffer and loads the `uk.lgl.modmenu.FloatingModMenu` class.
+3. **Class Loading:** The `InMemoryDexClassLoader` interprets the buffer and loads the `com.android.support.Menu` class.
 4. **JNI Registration:** Native functions are dynamically bound to the Java class methods.
-5. **Execution:** The `binJava()` entry point triggers `FloatingModMenu.antik(Context)` to render the UI.
+5. **Execution:** The `binJava()` entry point triggers `Menu.antik(Context)` to render the UI.
 
 ---
 
@@ -75,3 +75,4 @@ This project is developed strictly for **educational and research purposes**. Mo
 * **Original Architecture:** LGL Android Mod Menu
 * **Lead Developer:** AntikMods
 * **Memory Loading Logic:** NepMods
+
